@@ -3,7 +3,6 @@
 **Authors:** Rajesh Kannan Megalingam, Prasannahariveeresh Jeyaveerapandian Raji  
 **Affiliation:** HuT Labs, Department of Electronics and Communication Engineering, Amrita Vishwa Vidyapeetham, Amritapuri, India
 
----
 
 ## Overview
 
@@ -16,35 +15,11 @@ Tamil is one of India's oldest classical languages, with a script of 247 charact
 
 UltraTamNet achieves **98.22% test accuracy** on the public uTHCD dataset while maintaining only **1.27M parameters** and **167M FLOPs** — outperforming all 11 SOTA baselines including ResNet50, DenseNet169, and MobileNetV2.
 
----
+![System Architecture](imgs/system_arch.png)
 
 ## Architecture
 
-```
-Input (64×64×1)
-      │
-  ┌───▼────────────────────────────────────────────────┐
-  │  Initial Convolution Block (CB)                    │
-  │  Conv2D 5×5, 32 filters → BN → ReLU → MaxPool 2×2 │
-  └───▼────────────────────────────────────────────────┘
-      │
-  ┌───▼────────────────────────────────────────────────┐
-  │  Deeper Feature Extractor (SCB1 + SCB2)            │
-  │  SepConv 3×3, 64 filters  → BN → ReLU → MaxPool   │
-  │  SepConv 3×3, 128 filters → BN → ReLU → MaxPool   │
-  └───▼────────────────────────────────────────────────┘
-      │
-  ┌───▼────────────────────────────────────────────────┐
-  │  Depth Residual Layers (Deep1–Deep4)               │
-  │  SepConv → Residual Block  (×2 at 256 filters)     │
-  │  SepConv → Residual Block  (×2 at 512 filters)     │
-  └───▼────────────────────────────────────────────────┘
-      │
-  ┌───▼────────────────────────────────────────────────┐
-  │  Classification Head                               │
-  │  Global Average Pooling → Dense (softmax)          │
-  └────────────────────────────────────────────────────┘
-```
+![Model Architecture](imgs/model_arch.png)
 
 | Stage  | Layer Type | Kernel | Filters | Output Size  |
 |--------|------------|--------|---------|--------------|
@@ -61,17 +36,17 @@ Input (64×64×1)
 | Deep4  | SepConv + Residual | 3×3 | 512 | 8×8×512   |
 | Head   | GAP + Dense | —     | —       | 156 (or 12)  |
 
----
 
 ## Datasets
 
 ### Dataset 1 — uTHCD (Public Benchmark)
 - **Name:** Unconstrained Tamil Handwritten Character Database (uTHCD)
-- **Source:** [Kaggle — sudalairajkumar/tamil-handwritten-character-recognition](https://www.kaggle.com/datasets/sudalairajkumar/tamil-handwritten-character-recognition)
+- **Source:** [Kaggle — faizalhajamohideen/uthcdtamil-handwritten-database](https://www.kaggle.com/datasets/faizalhajamohideen/uthcdtamil-handwritten-database)
 - **Size:** 91,000+ single-character images across **156 classes** (vowels, consonants, vowel-consonant combinations)
 - **Image size:** 64×64 grayscale
 - **Split:** 80% train / 10% test / 10% validation (writer-independent)
 - **Used for:** Table 3 (model comparison), ablation study
+- **Citation:** N. Shaffi and F. Hajamohideen, "uTHCD: A New Benchmarking for Tamil Handwritten OCR," in IEEE Access, vol. 9, pp. 101469-101493, 2021, doi: 10.1109/ACCESS.2021.3096823.
 
 ### Dataset 2 — Custom Tamil Vowel Dataset (Authors' Dataset)
 - **Name:** Custom handwritten Tamil vowel dataset
@@ -79,15 +54,11 @@ Input (64×64×1)
 - **Size:** 600 raw images (50 samples × 12 classes), expanded via augmentation
 - **Classes (12):** அ ஆ இ ஈ உ ஊ எ ஏ ஐ ஒ ஓ ஔ *(Tamil Uyir Ezhuthu — pure vowels)*
 - **Used for:** Table 6 (augmentation study), LOVO generalization test
+- **Used for:**
 
 **Preprocessing pipeline applied to the custom dataset:**
 
-```
-RGB Image → Grayscale → Gaussian Blur (3×3) → Adaptive Thresholding
-         → Morphological Opening (2×2 kernel) → CLAHE → 64×64 resize
-```
-
----
+![Preprocessing Steps](imgs/preprocessing_steps.png)
 
 ## Key Results
 
@@ -134,34 +105,35 @@ RGB Image → Grayscale → Gaussian Blur (3×3) → Adaptive Thresholding
 |             | ×8          | 99.50 | 99.37 | 0.02 | 99.35 | 99.36 | 99.35 |
 |             | **×10**     | **99.87** | **99.81** | **0.01** | **99.77** | **99.60** | **99.68** |
 
----
+### GRAD-CAM Analysis on the trained model
+![GRAD-CAM Analysis](image.png)
 
 ## Repository Structure
 
 ```
 UltraTamNet-repo/
 │
-├── requirements.txt                      # Python dependencies
+├── requirements.txt
 │
 ├── data/
-│   ├── preprocess_uthcd.py              # Dataset 1 loader (uTHCD, 156 classes)
-│   └── preprocess_custom.py             # Dataset 2 loader (custom 12 Tamil vowels)
+│   ├── preprocess_uthcd.py
+│   └── preprocess_custom.py
 │
 ├── augmentation/
-│   └── augment_custom_dataset.py        # Offline augmentation pipeline for custom dataset
-│                                        # (binarize → skew correct → imgaug)
+│   └── augment_custom_dataset.py
+│                                           
 │
 ├── models/
-│   ├── ultratamnet.py                   # UltraTamNet architecture (proposed model)
-│   └── baselines.py                     # All 11 SOTA baseline model builders
+│   ├── ultratamnet.py                      
+│   └── baselines.py                        
 │
 ├── experiments/
-│   ├── table3_train_uthcd.py           # Reproduces Table 3 (all models on uTHCD)
-│   ├── table6_augmentation_study.py    # Reproduces Table 6 (augmentation study)
-│   └── ablation_study.py               # Ablation study (variants A1–A5)
+│   ├── table3_train_uthcd.py               
+│   ├── table6_augmentation_study.py        
+│   └── ablation_study.py                   
 │
 └── utils/
-    └── evaluate.py                      # FLOPs counter, metrics, Grad-CAM, all plots
+    └── evaluate.py                         
 ```
 
 ---
@@ -206,10 +178,10 @@ tamil-handwritten-character-recognition/
 **Dataset 2 (Custom):** Place raw scanned images as:
 ```
 CUSTOM/OP/new/
-    0/   (அ — 50 raw images)
-    1/   (ஆ — 50 raw images)
+    0/   (அ — raw images)
+    1/   (ஆ — raw images)
     ...
-    11/  (ஔ — 50 raw images)
+    11/  (ஔ — raw images)
 ```
 
 Verify both datasets load correctly:
@@ -335,9 +307,7 @@ python experiments/ablation_study.py \
 
 **Output:** `outputs/ablation/ablation_results.csv` with mean ± std for all metrics.
 
----
-
-## Experimental Setup (from paper)
+## Experimental Setup
 
 | Setting          | Value |
 |-----------------|-------|
@@ -354,29 +324,18 @@ python experiments/ablation_study.py \
 | Input size       | 64×64 grayscale |
 | Train/Test split | 80:20 (writer-independent) |
 
----
-
 ## Experimental Protocol Notes
 
 - Data augmentation was applied **exclusively to the training subset**. No augmentation was applied to validation or test sets to prevent information leakage.
 - The uTHCD test set was further split: 90% test / 10% held-out validation (`random_state=42`, stratified).
 - The Leave-One-Volunteer-Out (LOVO) test (generalization to unseen handwriting styles) uses one volunteer's data held out completely from training and used only for testing.
 
----
-
 ## Citation
 
 If you use this code or the UltraTamNet model in your research, please cite:
 
 ```bibtex
-@article{megalingam2025ultratamnet,
-  title     = {UltraTamNet: A Lightweight Tamil-Optimized Deep Learning Architecture
-               for Handwritten Character Recognition},
-  author    = {Megalingam, Rajesh Kannan and Raji, Prasannahariveeresh Jeyaveerapandian},
-  journal   = {Scientific Reports},
-  year      = {2025},
-  publisher = {Nature Publishing Group}
-}
+Will be updated soon.
 ```
 
 ---
