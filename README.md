@@ -63,7 +63,7 @@ UltraTamNet achieves **98.22% test accuracy** on the public uTHCD dataset while 
 ## Key Results
 
 ### UltraTamNet vs Other Models
-![Comparison](imgs/Comparison.png)
+![Comparison](imgs/comparison.png)
 
 ### Table 3 — Model Comparison on uTHCD (156 classes)
 
