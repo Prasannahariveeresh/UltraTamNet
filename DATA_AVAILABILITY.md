@@ -4,14 +4,13 @@
 
 > **Dataset 1 (uTHCD — public benchmark):** The Unconstrained Tamil Handwritten Character
 > Database (uTHCD) used in this study is publicly available on Kaggle at
-> https://www.kaggle.com/datasets/sudalairajkumar/tamil-handwritten-character-recognition
+> https://www.kaggle.com/datasets/faizalhajamohideen/uthcdtamil-handwritten-database
 > (156 classes, ≈91,000 images).
 >
 > **Dataset 2 (Custom Tamil Vowel Dataset — authors' dataset):** The custom handwritten Tamil
-> vowel dataset collected from 50 volunteers for this study is available from the corresponding
-> author (R.K. Megalingam, rajeshm@am.amirta.edu) upon reasonable request. For reviewer access
-> during peer review, the dataset can be provided via a private link on request to the editorial
-> office.
+> vowel dataset collected for this study is publicly available on Kaggle at
+> https://www.kaggle.com/datasets/prasanna2209/ultratamnet-custom-dataset/
+> (12 Tamil vowel classes, 484 raw images).
 >
 > **Supplementary data supporting Tables III and VI** (epoch-by-epoch training logs and
 > final metrics from all trained models) are provided as Supplementary Material in
@@ -30,7 +29,7 @@ IEEE Access, 9, pp.101469–101493.
 https://doi.org/10.1109/ACCESS.2021.3097444
 
 Dataset available at:
-https://www.kaggle.com/datasets/sudalairajkumar/tamil-handwritten-character-recognition
+https://www.kaggle.com/datasets/faizalhajamohideen/uthcdtamil-handwritten-database
 ```
 
 ### Dataset 2 — Custom Tamil Vowel Dataset
@@ -39,8 +38,8 @@ https://www.kaggle.com/datasets/sudalairajkumar/tamil-handwritten-character-reco
 Megalingam, R.K. and Jeyaveerapandian Raji, P. (2025).
 Custom Handwritten Tamil Vowel Dataset (Uyir Ezhuthu, 12 classes).
 Collected at HuT Labs, Amrita Vishwa Vidyapeetham, Amritapuri, India.
-50 volunteers, 600 raw images (6×10 grid, 300 DPI scan).
-Available from the corresponding author upon request.
+484 raw images across 12 Tamil vowel classes.
+Available at: https://www.kaggle.com/datasets/prasanna2209/ultratamnet-custom-dataset/
 ```
 
 ---

@@ -54,13 +54,16 @@ UltraTamNet achieves **98.22% test accuracy** on the public uTHCD dataset while 
 - **Size:** 600 raw images (50 samples × 12 classes), expanded via augmentation
 - **Classes (12):** அ ஆ இ ஈ உ ஊ எ ஏ ஐ ஒ ஓ ஔ *(Tamil Uyir Ezhuthu — pure vowels)*
 - **Used for:** Table 6 (augmentation study), LOVO generalization test
-- **Used for:**
+- **Link:** https://www.kaggle.com/datasets/prasanna2209/ultratamnet-custom-dataset/
 
 **Preprocessing pipeline applied to the custom dataset:**
 
 ![Preprocessing Steps](imgs/preprocessing_steps.png)
 
 ## Key Results
+
+### UltraTamNet vs Other Models
+![Comparison](imgs/Comparison.png)
 
 ### Table 3 — Model Comparison on uTHCD (156 classes)
 
@@ -106,7 +109,7 @@ UltraTamNet achieves **98.22% test accuracy** on the public uTHCD dataset while 
 |             | **×10**     | **99.87** | **99.81** | **0.01** | **99.77** | **99.60** | **99.68** |
 
 ### GRAD-CAM Analysis on the trained model
-![GRAD-CAM Analysis](image.png)
+![GRAD-CAM Analysis](imgs/grad_cam.png)
 
 ## Repository Structure
 
