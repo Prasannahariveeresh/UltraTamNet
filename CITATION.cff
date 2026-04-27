@@ -1,0 +1,47 @@
+cff-version: 1.2.0
+message: "If you use this code in your research, please cite the paper below."
+type: software
+title: "UltraTamNet: A Lightweight Tamil-Optimized Deep Learning Architecture for Handwritten Character Recognition"
+abstract: >
+  UltraTamNet is a Tamil-optimised hybrid CNN combining depthwise separable
+  convolutions with residual skip connections for efficient handwritten Tamil
+  character recognition. It achieves 98.22% test accuracy on the uTHCD
+  benchmark with only 1.27 M parameters and 167 M FLOPs, outperforming all
+  11 SOTA baselines evaluated.
+authors:
+  - family-names: Megalingam
+    given-names: Rajesh Kannan
+    affiliation: >
+      HuT Labs, Department of Electronics and Communication Engineering,
+      Amrita Vishwa Vidyapeetham, Amritapuri, India
+    email: rajeshm@am.amirta.edu
+  - family-names: Jeyaveerapandian Raji
+    given-names: Prasannahariveeresh
+    affiliation: >
+      HuT Labs, Department of Electronics and Communication Engineering,
+      Amrita Vishwa Vidyapeetham, Amritapuri, India
+    email: am.en.u4eac24052@am.students.amirta.edu
+repository-code: "https://github.com/Prasannahariveeresh/UltraTamNet"
+license: MIT
+version: "1.0.0"
+date-released: "2025-01-01"
+keywords:
+  - Tamil handwritten character recognition
+  - lightweight CNN
+  - depthwise separable convolutions
+  - residual connections
+  - deep learning
+  - computer vision
+preferred-citation:
+  type: article
+  title: >
+    UltraTamNet: A Lightweight Tamil-Optimized Deep Learning Architecture
+    for Handwritten Character Recognition
+  authors:
+    - family-names: Megalingam
+      given-names: Rajesh Kannan
+    - family-names: Jeyaveerapandian Raji
+      given-names: Prasannahariveeresh
+  journal: "Scientific Reports"
+  publisher: "Nature Publishing Group"
+  year: 2025

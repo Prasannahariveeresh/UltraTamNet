@@ -1,0 +1,17 @@
+Stage,Layer Type,Kernel,Filters,Output Size
+CB,Conv2D,5×5,32,—
+CB,MaxPooling2D,2×2,—,—
+CB,SeparableConv2D,3×3,64,—
+CB,MaxPooling2D,2×2,—,—
+SCB,SeparableConv2D,3×3,128,—
+SCB,MaxPooling2D,2×2,—,—
+SCB,SeparableConv2D,3×3,256,—
+SCB,SeparableConv2D,3×3,256,—
+SCB,SeparableConv2D,3×3,256,—
+SCB,SeparableConv2D,3×3,256,—
+Deep,SeparableConv2D,3×3,512,—
+Deep,SeparableConv2D,3×3,512,—
+Deep,SeparableConv2D,3×3,512,—
+Head,SeparableConv2D,3×3,512,—
+Head,GAP,—,—,—
+Head,Dense,—,156,—

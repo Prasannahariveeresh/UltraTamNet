@@ -1,0 +1,32 @@
+# Trained model weights (too large for version control — stored on Zenodo)
+outputs/table3/*.keras
+outputs/table6/**/*.keras
+outputs/ablation/**/*.keras
+
+# Python bytecode
+__pycache__/
+*.py[cod]
+*.pyo
+
+# Jupyter checkpoints
+.ipynb_checkpoints/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Dataset directories (not distributed with code)
+tamil-handwritten-character-recognition/
+CUSTOM/
+
+# Resource monitoring log (machine-specific)
+outputs/resources.log
+
+# Virtual environments
+venv/
+env/
+.env/
+
+# IDE
+.vscode/
+.idea/
