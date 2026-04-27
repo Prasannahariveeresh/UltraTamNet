@@ -4,7 +4,7 @@
 
 > The custom code used to design, train, and evaluate UltraTamNet is publicly available at
 > **[GitHub — Prasannahariveeresh/UltraTamNet](https://github.com/Prasannahariveeresh/UltraTamNet)**
-> (DOI: [10.5281/zenodo.XXXXXXX](https://doi.org/10.5281/zenodo.XXXXXXX), archived via Zenodo).
+> (DOI: [10.5281/zenodo.XXXXXXX](https://doi.org/10.5281/zenodo.19822876), archived via Zenodo).
 > The repository contains all source code required to reproduce Tables III, IV, VI and
 > Figures 9–16, including the UltraTamNet model architecture, all 11 baseline model
 > builders, dataset preprocessing pipelines, augmentation utilities, and evaluation scripts.
