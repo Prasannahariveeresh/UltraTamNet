@@ -2,6 +2,7 @@
 
 **Authors:** Rajesh Kannan Megalingam, Prasannahariveeresh Jeyaveerapandian Raji  
 **Affiliation:** HuT Labs, Department of Electronics and Communication Engineering, Amrita Vishwa Vidyapeetham, Amritapuri, India
+[![DOI](https://zenodo.org/badge/1222561041.svg)](https://doi.org/10.5281/zenodo.19822876)
 
 
 ## Overview
