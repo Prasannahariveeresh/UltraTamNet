@@ -1,7 +1,6 @@
 # Supplementary Material — UltraTamNet
 
 **Paper:** UltraTamNet: A Lightweight Tamil-Optimized Deep Learning Architecture for Handwritten Character Recognition  
-**Journal:** Scientific Reports (Nature Publishing Group)  
 **Authors:** Rajesh Kannan Megalingam, Prasannahariveeresh Jeyaveerapandian Raji
 
 ---
